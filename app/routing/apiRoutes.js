@@ -4,8 +4,8 @@
 // These data sources hold arrays of information on table-data, waitinglist, etc.
 // ===============================================================================
 
-var friends = require("../data/friends");
-
+var friendsArray = require("../data/friends");
+var path = require ("path");
 
 // ===============================================================================
 // ROUTING
@@ -36,25 +36,35 @@ module.exports = function(app) {
     // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
     // It will do this by sending out the value "true" have a table
     // req.body is available since we're using the body parsing middleware
-    if (friendsArray.length < 5) {
-      friends.push(req.body);
-      res.json(true);
+
+    var userData =req.body;
+    var totalDifference =1000;
+    var newFriend = userData.scores;
+    var matchName =" ";
+
+
+    // loop thru friendsArray first - this will look thru the existing user and new friend 
+    
+
+    for (var i = 0; i < friendsArray.length; i++){
+      diff= 0;
+    
+    for (var j = 0; j < newFriend.length; j++){
+    //finding the difference between the answers of friend and New friend 
+      diff += Math.abs(friendsArray[i].scores-newFriend[j])
+    };
+    // pushing the different between the scores of the data 
+    //userData.push(diff);
+
+    if (diff < totalDifference){
+      totalDifference= diff 
+      matchName =friendsArray[i].name
     }
-    else {
-      waitListData.push(req.body);
-      res.json(false);
-    }
-  });
+    // put new friend into the friendsArray 
+   friendsArray.push(userData);
 
-  // ---------------------------------------------------------------------------
-  // I added this below code so you could clear out the table while working with the functionality.
-  // Don"t worry about it!
+   res.json(matchName);
 
-  app.post("/api/clear", function(req, res) {
-    // Empty out the arrays of data
-    friendsArray.length = [];
- 
-
-    res.json({ ok: true });
-  });
-};
+  }
+  })
+  }

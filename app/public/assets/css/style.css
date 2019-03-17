@@ -1,0 +1,23 @@
+body {
+    background-image: url("images/homeback.jpeg");
+    background-repeat: no-repeat;
+  }
+
+.jumbotron{
+    background-blend-mode: darken;
+}
+
+.h1{
+    font-family: 'Libre Baskerville', serif;
+}
+
+.p{
+    font-size: 25px;
+    color: aliceblue;
+
+}
+
+.survBody{
+  background-image: url("images/surveyBack.jpg");
+  background-repeat: no-repeat;
+}

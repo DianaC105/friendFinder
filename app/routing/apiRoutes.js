@@ -38,49 +38,67 @@ module.exports = function(app) {
     // req.body is available since we're using the body parsing middleware
     console.log (req.body.scores);
 
+    var bestMatch = {
+      name: "",
+      photo: "",
+      friendDifference: Infinity
+    }
+
 
     var userData =req.body;
+    var userScores = userData.scores;
+
+    var totalDifference;
+
+    for(var i = 0; i< friendsArray.length; i++){
+
+      var currentFriend = friendsArray[i];
+      totalDifference = 0;
+
+      console.log(currentFriend.name);
+
+      for (var j=0; j < currentFriend.scores.length; j++) {
+        var currentFriendScores = currentFriend.scores[j];
+        var currentUserScores = userScores[j];
 
 
-    for(var i = 0; i< userData.scores.length; i++){
-
-      userData.scores[i]= parseInt(userData.scores[i]);
-    }
-    //var totalDifference =1000;
-    var newFriend = 0;
-    var minimumDiff = 40;
-
-
-    // loop thru friendsArray first - this will look thru the existing user and new friend 
-    
-
-    for (var i = 0; i < friendsArray.length; i++){
-      var totalDifference= 0;
-    
-    for (var j = 0; j < userData.length; j++){
-    //finding the difference between the answers of friend and New friend 
-      var diff = Math.abs(userData.scores[j]- friendsArray[i].scores[j]);
-      totalDifference += diff;
-    }
-
-    if(totalDifference <minimumDiff){
-      newFriend = i;
-      minimumDiff = totalDifference;
-    }
-  }
-
-
+        totalDifference += Math.abs(parseInt(currentUserScores) - parseInt(currentFriendScores));
+      }
+      //var totalDifference =1000;
+      // var newFriend = 0;
+      // var minimumDiff = 40;
+      
+      
+      // loop thru friendsArray first - this will look thru the existing user and new friend 
+      
+      
+      // for (var i = 0; i < friendsArray.length; i++){
+        //   totalDifference= 0;
+        
+        // for (var j = 0; j < userData.length; j++){
+          // //finding the difference between the answers of friend and New friend 
+          //   var diff = Math.abs(userData.scores[j]- friendsArray[i].scores[j]);
+          //   totalDifference += diff;
+          // }
+          
+          if(totalDifference < bestMatch.friendDifference){
+            bestMatch.name = currentFriend.name;
+            bestMatch.photo = currentFriend.photo;
+            bestMatch.friendDifference = totalDifference;
+          }
+        }
+          
     // pushing the different between the scores of the data 
     //userData.push(diff);
-
+    
     // if (diff < totalDifference){
-    //   totalDifference= diff 
-    //   matchName =friendsArray[i].name
-    // }
-    // put new friend into the friendsArray 
-   userData.push(userData);
-
-   res.json(userData[newFriend]);
+      //   totalDifference= diff 
+      //   matchName =friendsArray[i].name
+      // }
+      // put new friend into the friendsArray 
+      friendsArray.push(userData);
+      
+      res.json(bestMatch);
   //  res.end("hello world");
 
  // }

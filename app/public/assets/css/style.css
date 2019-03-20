@@ -21,3 +21,8 @@ body {
   background-image: url("images/surveyBack.jpg");
   background-repeat: no-repeat;
 }
+
+img{
+  width: 200;
+  height: 200;
+}

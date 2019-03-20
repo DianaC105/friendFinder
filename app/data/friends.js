@@ -19,7 +19,7 @@ var friendsArray = [
 },
 {
   "name":"Andrew",
-  "photo":"https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+  "photo":"https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" ,
   "scores":[
     2,
     1,
@@ -35,7 +35,7 @@ var friendsArray = [
 },
 {
   "name":"Matt",
-  "photo":"https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+  "photo":"https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" ,
   "scores":[
     2,
     1,
@@ -51,7 +51,7 @@ var friendsArray = [
 },
 {
 "name":"Yadira",
-"photo":"https://images.pexels.com/photos/761977/pexels-photo-761977.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+"photo":"https://images.pexels.com/photos/761977/pexels-photo-761977.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=200&w=1260",
 "scores":[
   1,
   1,
@@ -69,4 +69,4 @@ var friendsArray = [
 
 
 //Making File Accessible 
-module.export = friendsArray;
+module.exports = friendsArray;

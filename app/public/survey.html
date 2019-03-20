@@ -192,8 +192,8 @@
             <h2 class="modal-title"><strong>Best Match</strong></h2>
           </div>
           <div class="modal-body">
-            <h2 id="match-name"></h2>
-            <img id="match-img" src="https://www.fujifilmusa.com/products/digital_cameras/x/fujifilm_x20/sample_images/img/index/ff_x20_008.JPG" alt="">
+            <!-- <h2 id="match-name"></h2>
+            <img id="match-img" src="" alt=""> -->
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -316,6 +316,7 @@
                   $("#name").text(data.name);
                   $("#photo").attr("src", data.photo);
                   $("#results-modal").modal("toggle");
+                  $(".modal-body").append(`<div> <div>${data.name}</div><img src=${data.photo}></div>`)
                   
                   console.log(data);
                   

@@ -22,7 +22,13 @@ body {
   background-repeat: no-repeat;
 }
 
-img{
-  width: 200;
-  height: 200;
+img {
+    vertical-align: middle;
+    height: 100px;
+    width:100px;
 }
+#photo{
+    vertical-align: middle;
+    height: 100px;
+    width: 100px;
+} 

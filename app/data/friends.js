@@ -51,7 +51,7 @@ var friendsArray = [
 },
 {
 "name":"Yadira",
-"photo":"https://images.pexels.com/photos/761977/pexels-photo-761977.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=200&w=1260",
+"photo":"https://images.pexels.com/photos/761977/pexels-photo-761977.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=200&w=1260" ,
 "scores":[
   1,
   1,

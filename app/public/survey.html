@@ -292,8 +292,8 @@
               //if (isValid) {
                 // Create an object for the user"s data
                 var userData = {
-                  name: $("#name").val(),
-                  photo: $("#photo").val(),
+                  name: $("#name").val().trim(),
+                  photo: $("#photo").val().trim(),
                   scores: [
                     $("#q1").val(),
                     $("#q2").val(),
